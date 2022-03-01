@@ -1,0 +1,67 @@
+By Mathis
+
+pour créer un projet : 
+laravel new [NomDuProjet]
+
+(dans le php.ini, décommenter la ligne "extension = fileinfo")
+
+pour le setup :
+composer install
+
+pour ouvrir un serveur :
+php artisan key:generate
+php artisan serve 
+
+-> aller à l'adresse affichée (http://127.0.0.1:8000)
+
+-----
+npm install
+
+pour recompiler a chaque changement des sass (_variables.scss): 
+npm run dev    
+si erreur : npm update vue-loader
+
+-----
+
+Pour ouvrir php en commande : 
+php artisan tinker
+
+pour voir la liste d'users dans tinker :
+User::all()
+
+pour creer une variable d'un user :
+$[nom variable] = [path]::find[id user]
+exemple : 
+$user = App\Models\user::find(1)
+
+ensuite on peut modifier un paramètre :
+$user->profile->url = 'monsite.org';
+$user->save();
+$user->push();
+
+pour supprimer le contenu de d'une table (ici Post) :
+Post::truncate();
+
+
+----- Attention : on perd les données de la database
+pour migrer une database qui a été changée :
+php artisan migrate:fresh
+
+pour migrer une nouvelle database sans écraser les donnees :
+php artisan migrate
+
+pour créer un nouveau controller : 
+php artisan make:controller <nom du controller>
+
+pour créer un nouveau modèle avec migration :
+php artisan make:model <name> -m
+
+-----
+pour donner l'acces au storage (once in a lifetime project) : 
+php artisan storage:link
+
+
+
+
+
+.
