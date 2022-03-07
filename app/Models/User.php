@@ -45,7 +45,7 @@ class User extends Authenticatable
 
 
     public function serie(){
-        return $this->hasMany(Serie::class);
+        return $this->hasMany(Serie::class)->orderBy('created_at','DESC');
     }
 
     public function comment(){

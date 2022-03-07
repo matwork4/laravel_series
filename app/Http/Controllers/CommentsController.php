@@ -8,6 +8,10 @@ use App\Models\Comment;
 
 class CommentsController extends Controller
 {
+    public function __construct(){
+        //oblige a etre connecté pour utiliser les méthodes de la classe
+        $this->middleware('auth');
+    }
     
     public function store(){
         $data = request()->validate([
@@ -21,6 +25,7 @@ class CommentsController extends Controller
         /* On vérifie que le commentaire n'a pas été dupliqué
         * pour éviter que lorsqu'on actualise la page le commentaire
         * soit posté à nouveau.
+        * Avec ça on ne peut pas poster 2 fois le même commentaire.
         */
         $doublon = false;
         foreach($serie->comment as $c){
@@ -40,9 +45,13 @@ class CommentsController extends Controller
         }
 
         //On revoie vers la même page de série
+        /*
         return view('uneSerie', [
             'serie' => $serie,
-        ]);
+        ]);*/
+
+        //On redirige vers la même page de série
+        return redirect('/series/'.$data['serie_id']);
     }
 
     public function remove(){
@@ -58,9 +67,15 @@ class CommentsController extends Controller
         $serie = Serie::findOrFail($data['serie_id']);
 
         //On revoie vers la même page de série
+        /*
         return view('uneSerie', [
             'serie' => $serie,
-        ]);
+        ]);*/
+
+        //On redirige vers la même page de série
+        return redirect('/series/'.$data['serie_id']);
+
+        //Possitilité d'utiliser Ajax pour la redirection (et plus joli)
 
     }
 }

@@ -19,8 +19,11 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->text('actors');
-            $table->text('tags')->nullable();
-            $table->string('url')->nullable();
+            $table->text('tags');
+            $table->string('url_video');
+            $table->integer('note')->nullable();
+            $table->string('image_miniature');
+            $table->string('image_background')->nullable();
             $table->timestamps();
 
             //Index pour chaque foreign key de la table

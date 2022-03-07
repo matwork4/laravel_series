@@ -60,6 +60,18 @@ php artisan make:model <name> -m
 pour donner l'acces au storage (once in a lifetime project) : 
 php artisan storage:link
 
+-----
+apres le dl d'un projet sur git :
+composer update
+creer le .env en copiant le .env.example
+creer le database.sqlite
+
+pour créer une nouvelle série :
+new App\Models\Serie
+$serie->title = 'Titanic'
+$serie->user_id = 1
+$serie->save()
+
 
 
 

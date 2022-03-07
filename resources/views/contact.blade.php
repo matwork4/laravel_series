@@ -1,35 +1,22 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            
-        </style>
-
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
         
 
-        @extends('layouts/main')
+@extends('layouts/main')
 
-        @section('content')
-        <h1>Contact</h1>
-        @endsection
+@section('content')
+<h1>Contacts</h1>
+        
+<p>Liste des administrateurs à contacter :  
+    @foreach($user as $u)
+        <br>
+        <p>{{ $u->username }}</p>
+        <button class="btn btn-primary"
+        onclick="location.href='#'">
+            Contacter
+        </button>
+    @endforeach
+</p>
 
 
+@endsection
 
-    </body>
-</html>

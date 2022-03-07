@@ -43,6 +43,12 @@ Route::get('/logout', [App\Http\Controllers\HomeController::class, 'index'])->na
 
 //Route::get('/series/c/{serie}',[App\Http\Controllers\SeriesController::class, 'createComment'])->name('c_series.show');
 
-Route::post('/c','App\Http\Controllers\CommentsController@store');
+Route::post('/c_store','App\Http\Controllers\CommentsController@store');
 
 Route::post('/c_remove','App\Http\Controllers\CommentsController@remove');
+
+Route::post('/s_store','App\Http\Controllers\SeriesController@store');
+
+Route::post('/s_remove','App\Http\Controllers\SeriesController@remove');
+
+Route::get('/create/serie', 'App\Http\Controllers\SeriesController@createSerie');
