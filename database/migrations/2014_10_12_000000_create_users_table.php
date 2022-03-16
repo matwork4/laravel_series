@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('image_profile')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->boolean('isAdmin')->nullable();
             $table->timestamps();
         });
     }

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('note')->nullable();
             $table->string('image_miniature');
             $table->string('image_background')->nullable();
+            $table->string('image_logo')->nullable();
             $table->timestamps();
 
             //Index pour chaque foreign key de la table

@@ -14,4 +14,31 @@ class ProfilesController extends Controller
             'user' => $user,
         ]);
     }
+
+    public function newAdmin(){
+        $data = request()->validate([
+            'user_id' => 'required',
+        ]);
+
+        $user = User::findOrFail($data['user_id']);
+
+        $user->isAdmin = true;
+        $user->save();
+
+        return redirect('/profile/'.$data['user_id']);
+    }
+
+    public function removeAdmin(){
+        $data = request()->validate([
+            'user_id' => 'required',
+        ]);
+
+        $user = User::findOrFail($data['user_id']);
+
+        $user->isAdmin = false;
+        $user->save();
+
+        return redirect('/profile/'.$data['user_id']);
+
+    }
 }

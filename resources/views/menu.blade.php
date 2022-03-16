@@ -2,6 +2,8 @@
 @extends('layouts/main')
 
 @section('content')
+<link rel="stylesheet" href="css/app.css">
+
 <div class="div_menu">
     <h1>Main Menu</h1>
 
@@ -13,6 +15,7 @@
             Se connecter</button></p>
         <p>ou</p>
     @else
+        <p>Vous êtes connecté ! </p>
         <p>Bienvenue {{ Auth::user()->username }}</p>
     @endguest
 

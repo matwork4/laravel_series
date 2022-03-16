@@ -78,4 +78,19 @@ class CommentsController extends Controller
         //Possitilité d'utiliser Ajax pour la redirection (et plus joli)
 
     }
+
+    public function update(){
+        $data = request()->validate([
+            'comment_id' => 'required',
+            'contenu' => 'required',
+        ]);
+
+        $comment=Comment::find($data['comment_id']);
+
+        $comment->contenu = $data['contenu'];
+        $comment->save();
+
+
+        return redirect('/series/'.$comment->serie_id);
+    }
 }

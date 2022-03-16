@@ -47,8 +47,23 @@ Route::post('/c_store','App\Http\Controllers\CommentsController@store');
 
 Route::post('/c_remove','App\Http\Controllers\CommentsController@remove');
 
+Route::post('/c_update','App\Http\Controllers\CommentsController@update');
+
 Route::post('/s_store','App\Http\Controllers\SeriesController@store');
 
 Route::post('/s_remove','App\Http\Controllers\SeriesController@remove');
 
+Route::post('/s_update','App\Http\Controllers\SeriesController@update');
+
+Route::get('/update/series/{serie}','App\Http\Controllers\SeriesController@updateSerie')->name('series.show');
+
 Route::get('/create/serie', 'App\Http\Controllers\SeriesController@createSerie');
+
+Route::post('/contact_store', 'App\Http\Controllers\ContactController@store');
+
+
+//Ajouter, retirer les droits d'administration à un profil
+Route::post('/new_admin','App\Http\Controllers\ProfilesController@newAdmin');
+
+Route::post('/remove_admin','App\Http\Controllers\ProfilesController@removeAdmin');
+
