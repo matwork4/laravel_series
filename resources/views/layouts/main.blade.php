@@ -12,6 +12,52 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!--<link rel="stylesheet" href="css/app.css">-->
 </head>
+
+<!-- Navigation bar CSS -->
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+  color: white;
+}
+
+body{
+  background-color: black;
+}
+
+.top-bar {
+  background-color: transparent;
+}
+
+.top-bar .menu{
+  background-color: transparent;
+  color: red;
+  font-size: 1.2em;
+}
+
+.top-bar-right{
+  z-index: 2;
+  text-align: center;
+  font-size: 1em;
+}
+
+.top-bar-left a, .top-bar-right a{
+  color: white;
+  font-size: 1em;
+  text-decoration: none;
+  padding-right: 20px;
+  border-radius: 5px;
+}
+.top-bar-left a:hover{
+  color: black;
+  background-color: white;
+  box-shadow: 1px 1px 2px 2px white;
+  transition: 0.3s;
+}
+</style>
+
 <body>
 
   <!-- Start Top Bar -->
@@ -56,6 +102,7 @@
   </div>
   <!-- End Top Bar -->
 
+  <!--
   <div class="callout large primary">
     <div class="text-center">
       <h1>Series</h1>
@@ -65,9 +112,9 @@
 
   <article class="grid-container">
 
-    @yield('content')
+  </article>-->
 
-  </article>
+  @yield('content')
 
 
 

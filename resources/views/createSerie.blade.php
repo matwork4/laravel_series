@@ -30,11 +30,17 @@
             <strong>{{ $errors->first('image_miniature') }}</strong>
         @endif
 
-        <p>Image de fond d'écran : (Facultatif) </p>
+        <p>Image de fond d'écran : (Requis) </p>
         <input type="file" class="form-control-file" id="image_background" name="image_background"><br>
+        @if ($errors->has('image_background'))
+            <strong>{{ $errors->first('image_background') }}</strong>
+        @endif
 
-        <p>Image de l'icone du film : (Facultatif) </p>
+        <p>Image de l'icone du film : (Requis) </p>
         <input type="file" class="form-control-file" id="image_logo" name="image_logo"><br>
+        @if ($errors->has('image_logo'))
+            <strong>{{ $errors->first('image_logo') }}</strong>
+        @endif
         
 
         <input class="btn btn-primary" type="submit" value="Créer"/>

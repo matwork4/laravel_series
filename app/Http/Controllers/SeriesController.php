@@ -41,8 +41,8 @@ class SeriesController extends Controller
             'tags' => 'required',
             'url_video' => 'required',
             'image_miniature' => ['required','image'],
-            'image_background' => 'image',
-            'image_logo' => 'image',
+            'image_background' => ['required','image'],
+            'image_logo' => ['required','image'],
         ]);
 
         //dd(request()->all());
