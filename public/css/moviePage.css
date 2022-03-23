@@ -14,7 +14,7 @@ header{
 }
 
 header .logo{
-	max-width: 120px;
+	max-width: 150px;
 }
 
 header .toggle{
@@ -227,14 +227,22 @@ header .toggle{
 
 #boutons_commentaires{
 	display: flex;
-	align-items: end;
+	align-items: center;
 	justify-content: center;
-	flex-direction: row;
+	flex-direction: row-reverse;
 }
 
 #id_com{
-	width: 140vh;
-	height: 50px;
+	width: 150vh;
+	margin-left: -140px;
+	z-index: 10;
+}
+
+#btn_modifier{
+	margin-top: -20px;
+}
+#btn_supprimer{
+	margin-top: 58px;
 }
 
 #nouveau_commentaire{
@@ -252,5 +260,8 @@ header .toggle{
   text-decoration: none;
   padding-right: 20px;
   border-radius: 5px;
+}
 
+#btn_poster{
+	margin-top: -60px;
 }

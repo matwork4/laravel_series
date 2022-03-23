@@ -6,11 +6,24 @@
 @section('content')
 <link rel="stylesheet" href="../css/moviePage.css">
 
+<!-- Si aucune image n'a été uploadée, on met une image par défault -->
+@if($serie->image_logo == 'default')
+<style>
+body{
+    background: url('/assets/default_background.png');
+    background-size: contain;
+}
+</style>
+@else
 <style>
 body{
     background: url('/storage/{{ $serie->image_background }}');
+    background-size: contain;
 }
+</style>
+@endif
 
+<style>
 .slide{
     background: url('/storage/{{ $serie->image_miniature }}');
     background-size: cover;
@@ -19,7 +32,13 @@ body{
 </style>
 
 <header>
-    <a href="#" class="logo"><img src="/storage/{{ $serie->image_logo }}"></a>
+    <a href="#" class="logo">
+        @if($serie->image_logo == 'default')
+            <img src="/assets/default_logo.png" style="filter: invert(100%);">
+        @else
+            <img src="/storage/{{ $serie->image_logo }}">
+        @endif
+    </a>
 </header>
 
 
@@ -107,7 +126,7 @@ body{
                     <input type='text' name='contenu' value='{{ $c->contenu }}'><br>
                 </div>
                 <input type='hidden' name='comment_id' value='{{ $c->id }}' />
-                <input class="btn btn-primary" type="submit" value="Modifier"/>
+                <input id="btn_modifier" class="btn btn-primary" type="submit" value="Modifier"/>
             </form>
             
             <!-- Pour supprimer un commentaire -->
@@ -115,7 +134,7 @@ body{
                 @csrf
                 <input type='hidden' name='serie_id' value='{{ $serie->id }}' />
                 <input type='hidden' name='comment_id' value='{{ $c->id }}' />
-                <input class="btn btn-danger" type="submit" value="Supprimer"/>
+                <input id="btn_supprimer" class="btn btn-danger" type="submit" value="Supprimer"/>
             </form>
             </div>
             @else
@@ -137,14 +156,13 @@ body{
             Se connecter</button></p>
             
     @else
-        <p>Ecrire un commentaire :</p> 
+        <p>Ecrire un nouveau commentaire :</p> 
         <form action="/c_store" enctype="multipart/form-data" method="post">
             @csrf
-            <label for="commentaire">Ajouter un commentaire :</label><br>
             <input type="text" id="contenu" name="contenu" value=""><br><br>
             <!-- Permet de passer l'id de la série -->
             <input type='hidden' name='serie_id' value='{{ $serie->id }}' /> 
-            <input class="btn btn-primary" type="submit" value="Poster"/>
+            <input id="btn_poster" class="btn btn-primary" type="submit" value="Poster"/>
         </form> 
     @endguest
     </div>

@@ -25,6 +25,8 @@
 
 body{
   background-color: black;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 .top-bar {
@@ -48,13 +50,42 @@ body{
   font-size: 1em;
   text-decoration: none;
   padding-right: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .top-bar-left a:hover{
   color: black;
   background-color: white;
-  box-shadow: 1px 1px 2px 2px white;
-  transition: 0.3s;
+  box-shadow: 0px 0px 2px 2px white;
+  transition: 0.2s;
+}
+
+#foo{
+  display: flex;
+  justify-content: center;
+  position:relative;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
+#foo p{
+  margin-left: 2%;
+  color: white;
+  font-size: 1em;
+  text-decoration: none;
+}
+#foo p a{
+  color: white;
+  text-decoration: none;
+}
+#foo p a:hover{
+  color: lightgrey;
+}
+#trait{
+  margin: auto;
+  width: 30%;
+  height: 1px;
+  background-color: white;
+  margin-bottom: 12px;
 }
 </style>
 
@@ -116,6 +147,15 @@ body{
 
   @yield('content')
 
+
+  <footer>
+    <div id="trait"></div>
+    <div id="foo">
+      <p>Par <a href="https://github.com/matwork4">Mathis Ruffieux</a></p>
+      <p>M1 MIASHS - IC</p>
+      <p>Année 2022</p>
+    </div>
+  </footer>
 
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>

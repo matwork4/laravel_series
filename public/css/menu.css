@@ -11,15 +11,15 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 90vh;
+	min-height: 83vh;
 	background-color: black;
 
 	flex-direction: column;
 }
 .box{
 	position: relative;
-	width: 200px;
-	height: 200px;
+	width: 175px;
+	height: 250px;
 	transform-style: preserve-3d;
 	animation: animate 60s linear infinite;
 }
