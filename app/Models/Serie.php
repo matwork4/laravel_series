@@ -17,4 +17,8 @@ class Serie extends Model
     public function comment(){
         return $this->hasMany(Comment::class)->orderBy('created_at','DESC');
     }
+
+    public function rate(){
+        return $this->hasMany(Rate::class)->orderBy('created_at','DESC');
+    }
 }

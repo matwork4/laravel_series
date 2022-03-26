@@ -5,6 +5,8 @@
 
 @section('content')
 <link rel="stylesheet" href="../css/moviePage.css">
+<link rel="stylesheet" href="../css/rating.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
 
 <!-- Si aucune image n'a été uploadée, on met une image par défault -->
 @if($serie->image_logo == 'default')
@@ -33,16 +35,143 @@ body{
 
 <header>
     <a href="#" class="logo">
-        @if($serie->image_logo == 'default')
-            <img src="/assets/default_logo.png" style="filter: invert(100%);">
-        @else
-            <img src="/storage/{{ $serie->image_logo }}">
-        @endif
+      @if($serie->image_logo == 'default')
+        <img src="/assets/default_logo.png" style="filter: invert(100%);">
+      @else
+        <img src="/storage/{{ $serie->image_logo }}">
+      @endif
     </a>
 </header>
 
 
 <div class="banner">
+
+    <!-- Affiche la note de la série sous forme d'étoiles -->
+    <div class="rating">
+      @if($serie->note >= 4.5)
+        <input type="radio" name="star" id="star5" type="submit" checked>
+        <label for="star5"></label>
+        <input type="radio" name="star" id="star4" type="submit">
+        <label for="star4"></label>
+        <input type="radio" name="star" id="star3" type="submit">
+        <label for="star3"></label>
+        <input type="radio" name="star" id="star2" type="submit">
+        <label for="star2"></label>
+        <input type="radio" name="star" id="star1" type="submit">
+        <label for="star1"></label>
+
+      @elseif($serie->note >= 3.5)
+        <input type="radio" name="star" id="star5" type="submit">
+        <label for="star5"></label>
+        <input type="radio" name="star" id="star4" type="submit" checked>
+        <label for="star4"></label>
+        <input type="radio" name="star" id="star3" type="submit">
+        <label for="star3"></label>
+        <input type="radio" name="star" id="star2" type="submit">
+        <label for="star2"></label>
+        <input type="radio" name="star" id="star1" type="submit">
+        <label for="star1"></label>
+        
+      @elseif($serie->note >= 2.5)
+        <input type="radio" name="star" id="star5" type="submit">
+        <label for="star5"></label>
+        <input type="radio" name="star" id="star4" type="submit">
+        <label for="star4"></label>
+        <input type="radio" name="star" id="star3" type="submit" checked>
+        <label for="star3"></label>
+        <input type="radio" name="star" id="star2" type="submit">
+        <label for="star2"></label>
+        <input type="radio" name="star" id="star1" type="submit">
+        <label for="star1"></label>
+        
+      @elseif($serie->note >= 1.5)
+        <input type="radio" name="star" id="star5" type="submit">
+        <label for="star5"></label>
+        <input type="radio" name="star" id="star4" type="submit">
+        <label for="star4"></label>
+        <input type="radio" name="star" id="star3" type="submit">
+        <label for="star3"></label>
+        <input type="radio" name="star" id="star2" type="submit" checked>
+        <label for="star2"></label>
+        <input type="radio" name="star" id="star1" type="submit">
+        <label for="star1"></label>
+        
+      @elseif($serie->note >= 0.5)
+        
+        <input type="radio" name="star" id="star5" type="submit">
+        <label for="star5"></label>
+        <input type="radio" name="star" id="star4" type="submit">
+        <label for="star4"></label>
+        <input type="radio" name="star" id="star3" type="submit">
+        <label for="star3"></label>
+        <input type="radio" name="star" id="star2" type="submit">
+        <label for="star2"></label>
+        <input type="radio" name="star" id="star1" type="submit" checked>
+        <label for="star1"></label>
+
+      @else
+        <input type="radio" name="star" id="star5" type="submit">
+        <label for="star5"></label>
+        <input type="radio" name="star" id="star4" type="submit">
+        <label for="star4"></label>
+        <input type="radio" name="star" id="star3" type="submit">
+        <label for="star3"></label>
+        <input type="radio" name="star" id="star2" type="submit">
+        <label for="star2"></label>
+        <input type="radio" name="star" id="star1" type="submit">
+        <label for="star1"></label>
+      @endif
+    </div>
+    <div id="nb_votes">
+      @if($serie->rate->count() > 0)
+        <p>{{ $serie->note }}/5 ({{ $serie->rate->count() }} votes)</p>
+      @else
+        <p>Aucun vote</p>
+      @endif
+    </div>
+
+    <!-- Boutons pour attribuer une note aux séries -->
+    <div class="rating_btn">
+
+        <form action="/rate_store" enctype="multipart/form-data" method="post">  
+            @csrf
+            <input type='hidden' name='serie_id' value='{{ $serie->id }}' />
+            <input type='hidden' name='value' value='5' />
+            <button type="submit"></button>
+        </form>
+
+        <form action="/rate_store" enctype="multipart/form-data" method="post">  
+            @csrf
+            <input type='hidden' name='serie_id' value='{{ $serie->id }}' />
+            <input type='hidden' name='value' value='4' />
+            <button type="submit"></button>
+        </form>
+
+        <form action="/rate_store" enctype="multipart/form-data" method="post">  
+            @csrf
+            <input type='hidden' name='serie_id' value='{{ $serie->id }}' />
+            <input type='hidden' name='value' value='3' />
+            <button type="submit"></button>
+        </form>
+
+        <form action="/rate_store" enctype="multipart/form-data" method="post">  
+            @csrf
+            <input type='hidden' name='serie_id' value='{{ $serie->id }}' />
+            <input type='hidden' name='value' value='2' />
+            <button type="submit"></button>
+        </form>
+
+        <form action="/rate_store" enctype="multipart/form-data" method="post">  
+            @csrf
+            <input type='hidden' name='serie_id' value='{{ $serie->id }}' />
+            <input type='hidden' name='value' value='1' />
+            <button type="submit"></button>
+        </form>
+    </div>
+
+
+
+    <!-- Content section -->
     <div class="content">
         <h2>{{ $serie->title }}</h2>
         <p>{{ $serie->description }}</p>

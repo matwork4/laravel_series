@@ -37,8 +37,6 @@ Route::get('/series/{serie}', [App\Http\Controllers\SeriesController::class, 'nu
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Route::get('/series/c/{serie}',[App\Http\Controllers\SeriesController::class, 'createComment'])->name('c_series.show');
@@ -67,3 +65,4 @@ Route::post('/new_admin','App\Http\Controllers\ProfilesController@newAdmin');
 
 Route::post('/remove_admin','App\Http\Controllers\ProfilesController@removeAdmin');
 
+Route::post('/rate_store','App\Http\Controllers\RatesController@store');

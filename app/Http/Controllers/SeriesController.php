@@ -87,9 +87,14 @@ class SeriesController extends Controller
         if(Serie::find($data['serie_id']) == true){
             $serie = Serie::find($data['serie_id']);
 
+            //Pour ne pas laisser de données 'zombies'
             //Il faut d'abord supprimer les commentaires qui lui sont liés
             foreach($serie->comment as $c){
                 $c->delete();
+            }
+            //Ainsi que de supprimer les notes qui lui sont associées
+            foreach($serie->rate as $n){
+                $n->delete();
             }
 
             //On supprime les images de la série

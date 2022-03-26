@@ -1,0 +1,68 @@
+
+.rating, .rating_btn{
+	position: absolute;
+	top: 15%;
+	left: 40vh;
+	transform: translate(-50%,-50%) rotateY(180deg);
+	display: flex;
+}
+.rating input{
+	display: none;
+}
+.rating label{
+	display: block;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+}
+
+/* Commenter ce button pour voir le hover */
+.rating_btn button{
+	display: block;
+	width: 50px;
+	height: 50px;
+	background-color: transparent;
+	/*border: 1px solid red;*/
+	transform: translate(0,20%);
+	z-index: 9;
+}
+.rating_btn button:hover{
+	/*background-color: red;*/
+}
+
+.rating label:before{
+	content:"\f005";
+	font-family: fontAwesome;
+	position: relative;
+	display: block;
+	font-size: 25px;
+	color: lightgrey;
+}
+.rating label:after {
+	content:"\f005";
+	font-family: fontAwesome;
+	position: absolute;
+	display: block;
+	font-size: 25px;
+	color: orange;
+	top: 0;
+	opacity: 0;
+	transition: 0.5s;
+}
+.rating label:hover:after,
+.rating label:hover ~ label:after,
+.rating input:checked ~ label:after{
+	opacity: 1;
+}
+.rating label:hover:after,
+.rating label:hover ~ label:after{
+	color: yellow;
+	opacity: 1;
+}
+
+#nb_votes{
+	position: absolute;
+	top: 15%;
+	left: 55vh;
+	font-size: 0.9em;
+}
