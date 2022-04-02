@@ -89,6 +89,8 @@
       @endforeach
     </div>
 
+
+
 </div>
 
 
@@ -109,10 +111,12 @@
     @endforeach
 </p>
 
-<button class="btn btn-primary"
-onclick="location.href='/create/serie'">
-Ajouter une série</button>
+<button id="btn_ajout" class="btn btn-primary"
+    onclick="location.href='/create/serie'">
+    Ajouter une série</button>
 -->
+
+
 
 
 @endsection

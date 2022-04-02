@@ -102,6 +102,7 @@ body{
         <li><a href="/">Menu</a></li>
         <li><a href="/series">Series</a></li>
         @auth
+        <li><a href="/create/serie">Ajout serie</a></li>
         <li><a href="{{ url('/profile/'.Auth::user()->id) }}">Mon profil</a></li>
         @endauth
         <li><a href="/contact">Contact</a></li>

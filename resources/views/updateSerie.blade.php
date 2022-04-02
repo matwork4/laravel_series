@@ -4,15 +4,18 @@
 @extends('layouts/main')
 
 @section('content')
+<link rel="stylesheet" href="../../css/crudSerie.css">
+
 
 <!-- Modifier la série uniquement si elle nous appartient -->
+
 @guest
 <p>Vous devez être connecté pour accéder à cette page</p>
 @else
     @if($serie->user_id == auth()->user()->id || auth()->user()->isAdmin)
-
-    <form action="/s_update" enctype="multipart/form-data" method="post">
-    @csrf
+    <div id="form">
+      <form action="/s_update" enctype="multipart/form-data" method="post">
+      @csrf
 
         <h1>Modifier la série : {{ $serie->title }} </h1>
         
@@ -35,9 +38,9 @@
             <p>Image de fond d'écran : </p>
                 <input type="file" class="form-control-file" id="image_background" name="image_background"><br>
             @if( $serie->image_background == 'default')
-                <img src="/assets/default_background.png" style="width: 300px; height: 400px; object-fit: cover;">
+                <img src="/assets/default_background.png" style="width: 500px; height: 300px; object-fit: cover;">
             @else
-                <img src="/storage/{{ $serie->image_background }}" style="width: 300px; height: 400px; object-fit: cover;">
+                <img src="/storage/{{ $serie->image_background }}" style="width: 500px; height: 300px; object-fit: cover;">
             @endif
 
             <p>Image de l'icone du film : </p>
@@ -54,8 +57,8 @@
         <input class="btn btn-success" type="submit" value="Confirmer"/>
         <input class="btn btn-warning" type="button" value="Annuler"
         onclick="location.href='/series/{{$serie->id}}'"/>
-    </form>
-
+      </form>
+    </div>
     @else
         <p>Vous devez posséder la série {{ $serie->title }} pour accéder à cette page </p>
     @endif

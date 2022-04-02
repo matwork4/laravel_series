@@ -1,6 +1,8 @@
 @extends('layouts/main')
 
 @section('content')
+<link rel="stylesheet" href="../css/crudSerie.css">
+
 
 @guest
     <p>Connectez vous pour ajouter une série : 
@@ -9,7 +11,7 @@
         Se connecter</button></p>
             
 @else
-            
+  <div id="form">
     <form action="/s_store" enctype="multipart/form-data" method="post">
         @csrf
         <h3>Ajouter une série</h3><br>
@@ -39,6 +41,7 @@
 
         <input class="btn btn-primary" type="submit" value="Créer"/>
     </form> 
+  </div>
 @endguest
 
 
