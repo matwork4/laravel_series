@@ -7,7 +7,9 @@
 
 <link rel="stylesheet" href="./css/contactPage.css">
 
-<form action="/contact_store" enctype="multipart/form-data" method="post">
+<div id="formulaire_contact">
+
+    <form action="/contact_store" enctype="multipart/form-data" method="post">
         @csrf
         <h2>Formulaire de contacts</h2><br>
 
@@ -18,21 +20,29 @@
         <p>Message :</p><br>
         <input type="text" id="message" name="message" value=""><br>
 
-    <input class="btn btn-primary" type="submit" value="Envoyer"/>
-</form> 
+      <input class="btn btn-primary" type="submit" value="Envoyer"/>
+    </form> 
+
+</div>
 
 <br/>     
-<p>Administrateurs du site : </p>
-@foreach($user as $u)
-    @if($u->isAdmin)
+
+<div id="liste_admins">
+    <p>Administrateurs du site : </p>
+    @foreach($user as $u)
+      @if($u->isAdmin)
         <button class="btn btn-primary" onclick="location.href='/profile/{{ $u->id }}'">
             {{ $u->username }}
         </button>
-    @endif      
-@endforeach
+      @endif      
+    @endforeach
+</div>
 
 @guest
 @else
+  <!-- La liste des messages vue par les admins -->
+  <div id="champ_admin">
+
     @if(auth()->user()->isAdmin )
     <h2>Vous êtes administrateur</h2>
     <h3>Liste des messages : </h3>
@@ -46,6 +56,7 @@
     @endforeach
 
     @endif
+  </div>
 @endguest
 
 

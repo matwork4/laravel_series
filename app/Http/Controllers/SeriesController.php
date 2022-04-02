@@ -175,5 +175,20 @@ class SeriesController extends Controller
         //On redirige vers la vue de la série
         return redirect('/series/'.$serie->id);
     }
+
+    //Fonction permettant d'effectuer une recherche sur la page des séries
+    public function searchByTags(){
+        $data = request()->validate([
+            'tags' => 'required',
+        ]);
+
+        $serie = Serie::all();
+
+        return view('series', [
+            'serie' => $serie,
+            'tags' => $data['tags'],
+        ]);
+    }
+
 }
 

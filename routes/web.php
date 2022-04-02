@@ -66,3 +66,5 @@ Route::post('/new_admin','App\Http\Controllers\ProfilesController@newAdmin');
 Route::post('/remove_admin','App\Http\Controllers\ProfilesController@removeAdmin');
 
 Route::post('/rate_store','App\Http\Controllers\RatesController@store');
+
+Route::post('/series_search', 'App\Http\Controllers\SeriesController@searchByTags');

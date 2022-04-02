@@ -92,3 +92,7 @@ h1 span{
 .material-icons.md-36 { 
 	font-size: 30px; 
 }
+
+#input_search{
+	display: none;
+}

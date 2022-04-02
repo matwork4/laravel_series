@@ -1,6 +1,23 @@
 
 .message_contact{
-	border: 1px solid black;
+	border: 1px solid white;
 	padding: 10px;
 	margin: 20px;
+}
+
+#formulaire_contact{
+	margin: auto;
+	width: 90%;
+	font-size: 1.2em;
+}
+
+#liste_admins{
+	margin: auto;
+	width: 80%;
+}
+
+#champ_admin{
+	padding-top: 50px;
+	margin: auto;
+	width: 80%;
 }

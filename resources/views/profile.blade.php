@@ -4,27 +4,38 @@
 
 @section('content')
 
-@if($user->isAdmin)
-    <h1>Profile Administrateur</h1>
-@else
+<link rel="stylesheet" href="../css/profilePage.css">
+
+
+<div id="contenu_profil">
+
+  @if($user->isAdmin)
+    <h1>Profile <span>Administrateur</span></h1>
+  @else
     <h1>Profile</h1>
-@endif
-<p>Username : {{ $user->username }}</p>
-<p>Nom : {{ $user->name }}</p>
-<!-- On affiche le titre des séries -->
-<p>Mes séries : 
+  @endif
+  <p>Pseudo : {{ $user->username }}</p>
+  <p>Nom : {{ $user->name }}</p>
+  <p>Membre depuis le {{ $user->created_at->format('d-m-Y') }}</p>
+  <!-- On affiche le titre des séries -->
+  <p>Mes séries :</p>
+  <div id="mes_series"> 
     @foreach($user->serie as $s)
-        <br>
-        <button class="btn btn-primary"
-        onclick="location.href='/series/{{$s->id}}'">
-            {{$s->title}}
-        </button>
+        <div class="list" 
+              onclick="location.href='/series/{{$s->id}}'"
+              style="background: url('/storage/{{ $s->image_miniature }}') no-repeat center center /cover;
+              --my-title-var: '{{ $s->title }}';"></div>
+
+
     @endforeach
-</p>
+  </div>
+
+</div>
 
 
 @guest
 @else
+  <div id="admin_div">
     @if(auth()->user()->isAdmin && !$user->isAdmin)
     <form action="/new_admin" enctype="multipart/form-data" method="post">
         @csrf
@@ -42,6 +53,7 @@
         <input class="btn btn-warning" type="submit" value="Retirer Admin"/>
     </form>
     @endif
+  </div>
 @endguest
         
 @endsection
