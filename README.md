@@ -9,9 +9,20 @@
 
 ## Projet Laravel
 
-Par Mathis Ruffieux
-M1 MIASHS parcours Informatique et Cognition
+Par Mathis Ruffieux,
+M1 MIASHS parcours Informatique et Cognition,
 Année 2022
+
+## Rapport
+
+Le rapport (en pdf) se trouve dans le répertoire RAPPORT.
+Le guide d'installation du projet se trouve dans le pdf du rapport.
+Des exemples d'images à uploader lors de la création de séries se trouvent en annexes, dans le répertoire movies_assets du répertoire RAPPORT.
+
+## Référence 
+
+Utilisation de l'API html loader pour visionner les vidéos youtube : 
+https://github.com/thelevicole/youtube-to-html5-loader
 
 ## License
 

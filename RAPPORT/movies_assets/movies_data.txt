@@ -1,0 +1,34 @@
+Exemple de données à copier/coller pour faciliter la création de séries.
+(L'utilisation de la virgule n'est pas obligatoire pour les acteurs et les tags.)
+
+Vous pouvez aussi créer les films et séries de votre choix.
+
+
+--------- Joker : --------- 
+title: "Put on a Happy face",
+description: "Arthur Fleck, comédien raté, rencontre des voyous violents en errant dans les rues de Gotham City déguisé en clown. Méprisé par la société, Fleck s'enfonce peu à peu dans la démence et devient le génie criminel connu sous le nom de Joker, un dangereux tueur psychotique.",
+actors: "Joaquin Phoenix, Robert De Niro, Zazie Beetz et Frances Conroy",
+tags: "Joker, clown, fou, super héro",
+url_video: "https://youtu.be/zAGVQLHvwOY",
+
+
+--------- Batman : --------- 
+title: "The Batman",
+description: "The Batman, ou Le Batman au Québec, est un film américain de super-héros réalisé par Matt Reeves et sorti en 2022. Il s'agit du neuvième film centré sur le personnage de Batman créé par Bob Kane et Bill Finger. Il ne fait pas partie de l'univers cinématographique DC, comme un temps annoncé.",
+actors: "Robert Pattinson, Zoë Kravitz, Paul Dano, Colin Farrell et Jeffrey Wright",
+tags: "Chauve souris, batman, super héro",
+url_video: "https://youtu.be/mqqft2x_Aa4",
+
+
+--------- Harry Potter : --------- 
+title: "Retour à Poudlard",
+description: "20 ans après la sortie du 1er volet de la saga Harry Potter au cinéma, les acteurs se réunissent pour rendre hommage à tous ceux dont la vie a été touchée par ce phénomène culturel.",
+actors: "Daniel Radcliffe , Emma Watson , Rupert Grint",
+tags: "Magie, Harry potter, poudlard",
+url_video: "https://youtu.be/QbC5QU3OInI",
+
+
+
+
+
+
